@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html>
+<title>Baristas</title>
+        
+		<link rel="stylesheet" href="styles.css" />
+        
+
+	<div class="container-hero">
+		<div class="container hero">
+			
+			<div class="customer-support">
+
+				<img src="IMG/cafe logo.png" alt="" width="200">
+				<div class="content-customer-support">
+
+				</div>
+			</div>
+			<div class="container-logo">
+				
+			<br><br>
+
+				<h1><a href="/">CAFETERIA BLACK</a></h1>
+			</div>
+
+			<div class="social-icons">
+				<span class="facebook">
+					<a href="https://www.facebook.com" target="_blank">
+						<i class="fab fa-facebook-f"></i>
+					</a>
+				</span>
+				<span class="whatsapp">
+					<a href="https://web.whatsapp.com" target="_blank">
+						<i class="fab fa-whatsapp"></i>
+					</a>
+				</span>
+				<span class="youtube">
+					<a href="https://www.youtube.com" target="_blank">
+						<i class="fab fa-youtube"></i>
+					</a>
+				</span>
+				<span class="instagram">
+					<a href="https://www.instagram.com" target="_blank">
+						<i class="fab fa-instagram"></i>
+					</a>
+				</span>
+			</div>
+		</div>
+	</div>
+
+	<div class="container-navbar">
+		<nav class="navbar container">
+			<i class="fa-solid fa-bars"></i>
+			<ul class="menu">
+				<li><a href="#">Inicio</a></li>
+				<li><a href="#">Moca Helado</a></li>
+				<li><a href="#">Expreso</a></li>
+				<li><a href="#">Capuchino</a></li>
+				<li><a href="#">Más</a></li>
+				<li><a href="#">Blog</a></li>
+			</ul>
+
+			<form class="search-form">
+				<input type="search" placeholder="Buscar..." />
+				<button class="btn-search">
+					<i class="fa-solid fa-magnifying-glass"></i>
+				</button>
+			</form>
+		</nav>
+	</div>
+
+</header>
+</html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="authoring-tool" content="Adobe_Animate_CC">
+<title>Slider_ActionScript 3_HTML5 Canvas</title>
+<!-- write your code here -->
+<script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+<script src="Slider_ActionScript 3_HTML5 Canvas.js?1716611356215"></script>
+<script>
+var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+function init() {
+	canvas = document.getElementById("canvas");
+	anim_container = document.getElementById("animation_container");
+	dom_overlay_container = document.getElementById("dom_overlay_container");
+	var comp=AdobeAn.getComposition("82E20EA2BAD27D41ABB4A7A24984C655");
+	var lib=comp.getLibrary();
+	var loader = new createjs.LoadQueue(false);
+	loader.addEventListener("fileload", function(evt){handleFileLoad(evt,comp)});
+	loader.addEventListener("complete", function(evt){handleComplete(evt,comp)});
+	var lib=comp.getLibrary();
+	loader.loadManifest(lib.properties.manifest);
+}
+function handleFileLoad(evt, comp) {
+	var images=comp.getImages();	
+	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }	
+}
+function handleComplete(evt,comp) {
+	//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+	var lib=comp.getLibrary();
+	var ss=comp.getSpriteSheet();
+	var queue = evt.target;
+	var ssMetadata = lib.ssMetadata;
+	for(i=0; i<ssMetadata.length; i++) {
+		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
+	}
+	exportRoot = new lib.Slider_ActionScript3_HTML5Canvas();
+	stage = new lib.Stage(canvas);	
+	//Registers the "tick" event listener.
+	fnStartAnimation = function() {
+		stage.addChild(exportRoot);
+		createjs.Ticker.framerate = lib.properties.fps;
+		createjs.Ticker.addEventListener("tick", stage);
+	}	    
+	//Code to support hidpi screens and responsive scaling.
+	AdobeAn.makeResponsive(false,'both',false,1,[canvas,anim_container,dom_overlay_container]);	
+	AdobeAn.compositionLoaded(lib.properties.id);
+	fnStartAnimation();
+}
+</script>
+<!-- write your code here -->
+</head>
+<body onload="init();" style="margin:0px;">
+	<div id="animation_container" style="background-color:rgba(255, 255, 255, 1.00); width:1280px; height:720px">
+		<canvas id="canvas" width="1280" height="720" style="position: absolute; display: block; background-color:rgba(255, 255, 255, 1.00);"></canvas>
+		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:1280px; height:720px; position: absolute; left: 0px; top: 0px; display: block;">
+		</div>
+	</div>
+	<main class="main-content">
+		<section class="container container-features">
+			<div class="card-feature">
+				<i class="fa-solid fa-plane-up"></i>
+				<div class="feature-content">
+					<span>Envío gratuito a nivel mundial</span>
+					<p>En pedido superior a $150</p>
+				</div>
+			</div>
+			<div class="card-feature">
+				<i class="fa-solid fa-wallet"></i>
+				<div class="feature-content">
+					<span>Contrareembolso</span>
+					<p>100% garantía de devolución de dinero</p>
+				</div>
+			</div>
+			<div class="card-feature">
+				<i class="fa-solid fa-gift"></i>
+				<div class="feature-content">
+					<span>Tarjeta regalo especial</span>
+					<p>Ofrece bonos especiales con regalo</p>
+				</div>
+			</div>
+			<div class="card-feature">
+				<i class="fa-solid fa-headset"></i>
+				<div class="feature-content">
+					<span>Servicio al cliente 24/7</span>
+					<p>LLámenos 24/7 al 123-456-7890</p>
+				</div>
+			</div>
+		</section>
+	
+		<section class="container top-categories">
+			<h1 class="heading-1">Mejores Categorías</h1>
+			<div class="container-categories">
+				<div class="card-category category-moca">
+					<p>Café moca</p>
+					<span>Ver más</span>
+				</div>
+				<div class="card-category category-expreso">
+					<p>Expreso Americano</p>
+					<span>Ver más</span>
+				</div>
+				<div class="card-category category-capuchino">
+					<p>Capuchino</p>
+					<span>Ver más</span>
+				</div>
+			</div>
+		</section>
+	
+		<section class="container top-products">
+			<h1 class="heading-1">Mejores Productos</h1>
+	
+			<div class="container-options">
+				<span class="active">Destacados</span>
+				<span>Más recientes</span>
+				<span>Mejores Vendidos</span>
+			</div>
+	
+			<div class="container-products">
+				<!-- Producto 1 -->
+				<div class="card-product">
+					<div class="container-img">
+						<img src="IMG/cafe-irish.jpg" alt="Cafe Irish" />
+						<span class="discount">-13%</span>
+						<div class="button-group">
+							<span>
+								<i class="fa-regular fa-eye"></i>
+							</span>
+							<span>
+								<i class="fa-regular fa-heart"></i>
+							</span>
+							<span>
+								<i class="fa-solid fa-code-compare"></i>
+							</span>
+						</div>
+					</div>
+					<div class="content-card-product">
+						<div class="stars">
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+						</div>
+						<h3>Cafe Irish</h3>
+						<span class="add-cart">
+							<i class="fa-solid fa-basket-shopping"></i>
+						</span>
+						<p class="price">$4.60 <span>$5.30</span></p>
+					</div>
+				</div>
+				<!-- Producto 2 -->
+				<div class="card-product">
+					<div class="container-img">
+						<img
+							src="IMG/cafe-ingles.jpg"
+							alt="Cafe incafe-ingles.jpg"
+						/>
+						<span class="discount">-22%</span>
+						<div class="button-group">
+							<span>
+								<i class="fa-regular fa-eye"></i>
+							</span>
+							<span>
+								<i class="fa-regular fa-heart"></i>
+							</span>
+							<span>
+								<i class="fa-solid fa-code-compare"></i>
+							</span>
+						</div>
+					</div>
+					<div class="content-card-product">
+						<div class="stars">
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+						</div>
+						<h3>Cafe Inglés</h3>
+						<span class="add-cart">
+							<i class="fa-solid fa-basket-shopping"></i>
+						</span>
+						<p class="price">$5.70 <span>$7.30</span></p>
+					</div>
+				</div>
+				<!--  -->
+				<div class="card-product">
+					<div class="container-img">
+						<img
+							src="IMG/cafe-australiano.jpg"
+							alt="Cafe Australiano"
+						/>
+						<div class="button-group">
+							<span>
+								<i class="fa-regular fa-eye"></i>
+							</span>
+							<span>
+								<i class="fa-regular fa-heart"></i>
+							</span>
+							<span>
+								<i class="fa-solid fa-code-compare"></i>
+							</span>
+						</div>
+					</div>
+					<div class="content-card-product">
+						<div class="stars">
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+						</div>
+						<h3>Cafe Australiano</h3>
+						<span class="add-cart">
+							<i class="fa-solid fa-basket-shopping"></i>
+						</span>
+						<p class="price">$3.20</p>
+					</div>
+				</div>
+				<!--  -->
+				<div class="card-product">
+					<div class="container-img">
+						<img src="IMG/cafe-helado.jpg" alt="Cafe Helado" />
+						<div class="button-group">
+							<span>
+								<i class="fa-regular fa-eye"></i>
+							</span>
+							<span>
+								<i class="fa-regular fa-heart"></i>
+							</span>
+							<span>
+								<i class="fa-solid fa-code-compare"></i>
+							</span>
+						</div>
+					</div>
+					<div class="content-card-product">
+						<div class="stars">
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+						</div>
+						<h3>Cafe Helado</h3>
+						<span class="add-cart">
+							<i class="fa-solid fa-basket-shopping"></i>
+						</span>
+						<p class="price">$5.60</p>
+					</div>
+				</div>
+			</div>
+		</section>
+	
+		
+	
+		<section class="container specials">
+			<h1 class="heading-1">Especiales</h1>
+	
+			<div class="container-products">
+				<!-- Producto 1 -->
+				<div class="card-product">
+					<div class="container-img">
+						<img src="IMG/cafe-irish.jpg" alt="Cafe Irish" />
+						<span class="discount">-13%</span>
+						<div class="button-group">
+							<span>
+								<i class="fa-regular fa-eye"></i>
+							</span>
+							<span>
+								<i class="fa-regular fa-heart"></i>
+							</span>
+							<span>
+								<i class="fa-solid fa-code-compare"></i>
+							</span>
+						</div>
+					</div>
+					<div class="content-card-product">
+						<div class="stars">
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+						</div>
+						<h3>Cafe Irish</h3>
+						<span class="add-cart">
+							<i class="fa-solid fa-basket-shopping"></i>
+						</span>
+						<p class="price">$4.60 <span>$5.30</span></p>
+					</div>
+				</div>
+				<!-- Producto 2 -->
+				<div class="card-product">
+					<div class="container-img">
+						<img
+							src="IMG/cafe-ingles.jpg"
+							alt="Cafe incafe-ingles.jpg"
+						/>
+						<span class="discount">-22%</span>
+						<div class="button-group">
+							<span>
+								<i class="fa-regular fa-eye"></i>
+							</span>
+							<span>
+								<i class="fa-regular fa-heart"></i>
+							</span>
+							<span>
+								<i class="fa-solid fa-code-compare"></i>
+							</span>
+						</div>
+					</div>
+					<div class="content-card-product">
+						<div class="stars">
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+						</div>
+						<h3>Cafe Inglés</h3>
+						<span class="add-cart">
+							<i class="fa-solid fa-basket-shopping"></i>
+						</span>
+						<p class="price">$5.70 <span>$7.30</span></p>
+					</div>
+				</div>
+				<!--  -->
+				<div class="card-product">
+					<div class="container-img">
+						<img src="IMG/cafe-viena.jpg" alt="Cafe Viena" />
+						<span class="discount">-30%</span>
+						<div class="button-group">
+							<span>
+								<i class="fa-regular fa-eye"></i>
+							</span>
+							<span>
+								<i class="fa-regular fa-heart"></i>
+							</span>
+							<span>
+								<i class="fa-solid fa-code-compare"></i>
+							</span>
+						</div>
+					</div>
+					<div class="content-card-product">
+						<div class="stars">
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+						</div>
+						<h3>Cafe Viena</h3>
+						<span class="add-cart">
+							<i class="fa-solid fa-basket-shopping"></i>
+						</span>
+						<p class="price">$3.85 <span>$5.50</span></p>
+					</div>
+				</div>
+				<!--  -->
+				<div class="card-product">
+					<div class="container-img">
+						<img src="IMG/cafe-liqueurs.jpg" alt="Cafe Liqueurs" />
+						<div class="button-group">
+							<span>
+								<i class="fa-regular fa-eye"></i>
+							</span>
+							<span>
+								<i class="fa-regular fa-heart"></i>
+							</span>
+							<span>
+								<i class="fa-solid fa-code-compare"></i>
+							</span>
+						</div>
+					</div>
+					<div class="content-card-product">
+						<div class="stars">
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+						</div>
+						<h3>Cafe Liqueurs</h3>
+						<span class="add-cart">
+							<i class="fa-solid fa-basket-shopping"></i>
+						</span>
+						<p class="price">$5.60</p>
+					</div>
+				</div>
+			</div>
+		</section>
+	
+		<section class="container blogs">
+			<h1 class="heading-1">Últimos Blogs</h1>
+	
+			<div class="container-blogs">
+				<div class="card-blog">
+					<div class="container-img">
+						<img src="IMG/blog-1.jpg" alt="Imagen Blog 1" />
+						<div class="button-group-blog">
+							<span>
+								<i class="fa-solid fa-magnifying-glass"></i>
+							</span>
+							<span>
+								<i class="fa-solid fa-link"></i>
+							</span>
+						</div>
+					</div>
+					<div class="content-blog">
+						<h3>Lorem, ipsum dolor sit</h3>
+						<span>29 Noviembre 2022</span>
+						<p>
+							Lorem ipsum dolor sit amet consectetur adipisicing
+							elit. Iste, molestiae! Ratione et, dolore ipsum
+							quaerat iure illum reprehenderit non maxime amet dolor
+							voluptas facilis corporis, consequatur eius est sunt
+							suscipit?
+						</p>
+						<div class="btn-read-more">Leer más</div>
+					</div>
+				</div>
+				<div class="card-blog">
+					<div class="container-img">
+						<img src="IMG/blog-2.jpg" alt="Imagen Blog 2" />
+						<div class="button-group-blog">
+							<span>
+								<i class="fa-solid fa-magnifying-glass"></i>
+							</span>
+							<span>
+								<i class="fa-solid fa-link"></i>
+							</span>
+						</div>
+					</div>
+					<div class="content-blog">
+						<h3>Lorem, ipsum dolor sit</h3>
+						<span>29 Noviembre 2022</span>
+						<p>
+							Lorem ipsum dolor sit amet consectetur adipisicing
+							elit. Iste, molestiae! Ratione et, dolore ipsum
+							quaerat iure illum reprehenderit non maxime amet dolor
+							voluptas facilis corporis, consequatur eius est sunt
+							suscipit?
+						</p>
+						<div class="btn-read-more">Leer más</div>
+					</div>
+				</div>
+				<div class="card-blog">
+					<div class="container-img">
+						<img src="img/blog-3.jpg" alt="Imagen Blog 3" />
+						<div class="button-group-blog">
+							<span>
+								<i class="fa-solid fa-magnifying-glass"></i>
+							</span>
+							<span>
+								<i class="fa-solid fa-link"></i>
+							</span>
+						</div>
+					</div>
+					<div class="content-blog">
+						<h3>Lorem, ipsum dolor sit</h3>
+						<span>29 Noviembre 2022</span>
+						<p>
+							Lorem ipsum dolor sit amet consectetur adipisicing
+							elit. Iste, molestiae! Ratione et, dolore ipsum
+							quaerat iure illum reprehenderit non maxime amet dolor
+							voluptas facilis corporis, consequatur eius est sunt
+							suscipit?
+						</p>
+						<div class="btn-read-more">Leer más</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+	
+	<footer class="footer">
+		<div class="container container-footer">
+			<div class="menu-footer">
+				<div class="contact-info">
+					<p class="title-footer">Información de Contacto</p>
+					<ul>
+						<li>
+							Dirección: 71 Pennington Lane Vernon Rockville, CT
+							06066
+						</li>
+						<li>Teléfono: 123-456-7890</li>
+						<li>Fax: 55555300</li>
+						<li>EmaiL: baristas@support.com</li>
+					</ul>
+					
+				</div>
+	
+				<div class="information">
+					<p class="title-footer">Información</p>
+					<ul>
+						<li><a href="#">Acerca de Nosotros</a></li>
+						<li><a href="#">Información Delivery</a></li>
+						<li><a href="#">Politicas de Privacidad</a></li>
+						<li><a href="#">Términos y condiciones</a></li>
+						<li><a href="#">Contactános</a></li>
+					</ul>
+				</div>
+	
+				<div class="my-account">
+					<p class="title-footer">Mi cuenta</p>
+	
+					<ul>
+						<li><a href="#">Mi cuenta</a></li>
+						<li><a href="#">Historial de ordenes</a></li>
+						<li><a href="#">Lista de deseos</a></li>
+						<li><a href="#">Boletín</a></li>
+						<li><a href="#">Reembolsos</a></li>
+					</ul>
+				</div>
+	
+				<div class="newsletter">
+					<p class="title-footer">Boletín informativo</p>
+	
+					<div class="content">
+						<p>
+							Suscríbete a nuestros boletines ahora y mantente al
+							día con nuevas colecciones y ofertas exclusivas.
+						</p>
+						<input type="email" placeholder="Ingresa el correo aquí...">
+						<button>Suscríbete</button>
+					</div>
+				</div>
+			</div>
+	
+			<div class="copyright">
+				<p>
+					Desarrollado por Programación para el mundo &copy; 2022
+				</p>
+	
+				<img src="IMG/" alt="Pagos">
+			</div>
+		</div>
+	</footer>
+	
+	<script
+		src="https://kit.fontawesome.com/81581fb069.js"
+		crossorigin="anonymous"
+	></script>
+</body>
+</html>
